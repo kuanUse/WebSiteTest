@@ -1,0 +1,3 @@
+v2.0.11
+https://github.com/mebjas/html5-qrcode
+功能:Qr code & barcode掃描

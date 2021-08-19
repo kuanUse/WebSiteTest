@@ -1,0 +1,146 @@
+﻿
+@{
+    ViewBag.Title = "BootstrapTest";
+}
+<div class="jumbotron text-center">
+    <h1>Kuan's MVC Test Page</h1>
+</div>
+
+<div class="container-fluid  p-3 my-3">
+    <h1>H1 Title</h1>
+    <p>
+        <abbr title="World Health Organization">test</abbr>P Text
+    </p>
+    <blockquote cite="http://developer.mozilla.org">
+        <p>這是取自於 Mozilla Developer Center 的引言。</p>
+    </blockquote>
+    <footer class="blockquote-footer">From WWF's website</footer>
+    <div class="container-fluid">
+        @for (int i = 0; i < 10; i++)
+        {
+            <div class="row">
+                <div class="col-md-6 bg-success">
+                    @(i + 1)
+                </div>
+                <div class="col-md-6 bg-warning">
+                    @(i + 1)
+                </div>
+            </div>
+        }
+    </div>
+    <div class="table-responsive">
+        <table class="table table-dark table-striped table-bordered table-hover ">
+            <thead>
+                <tr>
+                    <th class="th-sm-4">Firstname</th>
+                    <th class="th-sm-2">Lastname</th>
+                    <th class="th-sm-4">Email</th>
+                    <th class="th-sm-2">T</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var color = new string[] { "table-primary", "table-success", "table-danger", "table-info", "table-warning" };
+                    var colorLength = color.Length;
+                }
+                @for (int i = 0; i < 10; i++)
+                {
+                    <tr class="@(color[i%colorLength])">
+                        <th class="">@(i + 1)</th>
+                        <th class="">@(i + 2)</th>
+                        <th class="">@(i + 3)</th>
+                        <th class="">@(i % colorLength )</th>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="alert alert-success">
+        <strong>Success!</strong> Indicates a successful or positive action.<a href="#" class="alert-link">read this message</a>.
+    </div>
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;&delta;</button>
+        <strong>Success!</strong> Indicates a successful or positive action.
+    </div>
+    <div class="alert alert-success alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">&times;&delta;</button>
+        <strong>Success!</strong> Indicates a successful or positive action.
+    </div>
+    <div class="btn-group-vertical">
+        <button type="button" class="btn">Basic</button>
+        <button type="button" class="btn btn-primary">Primary</button>
+        <button type="button" class="btn btn-secondary">Secondary</button>
+        <button type="button" class="btn btn-success">Success</button>
+        <button type="button" class="btn btn-info">Info</button>
+        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-danger">Danger</button>
+        <button type="button" class="btn btn-dark">Dark</button>
+        <button type="button" class="btn btn-light">Light</button>
+        <button type="button" class="btn btn-link">Link</button>
+    </div>
+    <div class="">
+        <a href="#" class="btn btn-primary" role="button">Link Button</a>
+        <button type="button" class="btn btn-success">Button</button>
+        <input type="button" class="btn btn-info" value="Input Button">
+        <input type="submit" class="btn btn-danger" value="Submit Button">
+    </div>
+    <div class="">
+        <button type="button" class="btn btn-outline-primary btn-lg">Primary</button>
+        <button type="button" class="btn btn-outline-secondary">Secondary</button>
+        <button type="button" class="btn btn-outline-success btn-sm">Success</button>
+        <button type="button" class="btn btn-outline-info">Info</button>
+        <button type="button" class="btn btn-outline-warning">Warning</button>
+        <button type="button" class="btn btn-outline-danger">Danger</button>
+        <button type="button" class="btn btn-outline-dark">Dark</button>
+        <button type="button" class="btn btn-outline-light text-dark">Light</button>
+    </div>
+    <button type="button" class="btn btn-primary btn-block">Full-Width Button</button>
+    <div class="">
+        <h2>Button States</h2>
+        <button type="button" class="btn btn-primary">Primary Button</button>
+        <button type="button" class="btn btn-primary active">Active Primary</button>
+        <button type="button" class="btn btn-primary" disabled>Disabled Primary</button>
+        <a href="#" class="btn btn-primary disabled">Disabled Link</a>
+    </div>
+
+    <div class="">
+        <h2>Nesting Button Groups</h2>
+        <p>Nest button groups to create dropdown menus:</p>
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary">Apple</button>
+            <button type="button" class="btn btn-primary">Samsung</button>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    Sony
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Tablet</a>
+                    <a class="dropdown-item" href="#">Smartphone</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="">
+        <h2>Spinner Buttons</h2>
+        <p>Add spinners to buttons:</p>
+
+        <button class="btn btn-primary">
+            <span class="spinner-border spinner-border-sm"></span>
+        </button>
+
+        <button class="btn btn-primary">
+            <span class="spinner-border spinner-border-sm"></span>
+            Loading..
+        </button>
+
+        <button class="btn btn-primary" disabled>
+            <span class="spinner-border spinner-border-sm"></span>
+            Loading..
+        </button>
+
+        <button class="btn btn-primary" disabled>
+            <span class="spinner-grow spinner-grow-sm"></span>
+            Loading..
+        </button>
+    </div>
+</div>

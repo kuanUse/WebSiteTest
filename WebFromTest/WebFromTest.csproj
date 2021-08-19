@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2A7FD55D-52DA-4156-96FF-1444E5179DF2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebFromTest</RootNamespace>
+    <AssemblyName>WebFromTest</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus, Version=4.5.3.3, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.3.3\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.19.12.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PageJs\QrCode.js" />
+    <Content Include="PageJs\test1.js" />
+    <Content Include="PluginJs\bootstrap-datatables\datatables.min.css" />
+    <Content Include="PluginJs\bootstrap-datatables\datatables.min.js" />
+    <Content Include="PluginJs\bootstrap-datatables\dataTables.scrollResize.min.js" />
+    <Content Include="PluginJs\bootstrap-datatables\version.txt" />
+    <Content Include="PluginJs\bootstrap-select\css\bootstrap-select.css" />
+    <Content Include="PluginJs\bootstrap-select\css\bootstrap-select.min.css" />
+    <Content Include="PluginJs\bootstrap-select\js\bootstrap-select.min.js" />
+    <Content Include="PluginJs\bootstrap-select\js\i18n\defaults-en_US.js" />
+    <Content Include="PluginJs\bootstrap-select\js\i18n\defaults-en_US.min.js" />
+    <Content Include="PluginJs\bootstrap-select\js\i18n\defaults-zh_CN.js" />
+    <Content Include="PluginJs\bootstrap-select\js\i18n\defaults-zh_CN.min.js" />
+    <Content Include="PluginJs\bootstrap-select\js\i18n\defaults-zh_TW.js" />
+    <Content Include="PluginJs\bootstrap-select\js\i18n\defaults-zh_TW.min.js" />
+    <Content Include="PluginJs\bootstrap-select\version.txt" />
+    <Content Include="PluginJs\bootstrap-summernote\summernote-bs4.min.css" />
+    <Content Include="PluginJs\bootstrap-summernote\summernote-bs4.min.js" />
+    <Content Include="PluginJs\bootstrap-summernote\summernote-bs4.min.js.LICENSE.txt" />
+    <Content Include="PluginJs\bootstrap-summernote\summernote-zh-TW.min.js" />
+    <Content Include="PluginJs\bootstrap-summernote\summernote-zh-TW.min.js.LICENSE.txt" />
+    <Content Include="PluginJs\bootstrap-summernote\version.txt" />
+    <Content Include="PluginJs\bootstrap\css\bootstrap.min.css" />
+    <Content Include="PluginJs\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="packages.config" />
+    <Content Include="PluginJs\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="PluginJs\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="PluginJs\bootstrap-select\bower.json" />
+    <Content Include="PluginJs\bootstrap-select\composer.json" />
+    <Content Include="PluginJs\bootstrap-select\css\bootstrap-select.css.map" />
+    <Content Include="PluginJs\bootstrap-select\js\bootstrap-select.min.js.map" />
+    <Content Include="PluginJs\bootstrap-select\js\i18n\defaults-en_US.js.map" />
+    <Content Include="PluginJs\bootstrap-select\js\i18n\defaults-zh_CN.js.map" />
+    <Content Include="PluginJs\bootstrap-select\js\i18n\defaults-zh_TW.js.map" />
+    <Content Include="PluginJs\bootstrap-select\package.json" />
+    <Content Include="PluginJs\bootstrap-summernote\font\summernote.eot" />
+    <Content Include="PluginJs\bootstrap-summernote\font\summernote.ttf" />
+    <Content Include="PluginJs\bootstrap-summernote\font\summernote.woff" />
+    <Content Include="PluginJs\bootstrap-summernote\font\summernote.woff2" />
+    <Content Include="PluginJs\bootstrap-summernote\summernote-bs4.min.js.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PluginJs\jquery-3.6.0.min.js" />
+    <Content Include="PluginJs\jquery-ui\images\ui-icons_444444_256x240.png" />
+    <Content Include="PluginJs\jquery-ui\images\ui-icons_555555_256x240.png" />
+    <Content Include="PluginJs\jquery-ui\images\ui-icons_777620_256x240.png" />
+    <Content Include="PluginJs\jquery-ui\images\ui-icons_777777_256x240.png" />
+    <Content Include="PluginJs\jquery-ui\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="PluginJs\jquery-ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="PluginJs\jquery-ui\jquery-ui.min.css" />
+    <Content Include="PluginJs\jquery-ui\jquery-ui.min.js" />
+    <Content Include="PluginJs\jquery-ui\jquery-ui.theme.min.css" />
+    <Content Include="PluginJs\moment-with-locales.js" />
+    <Content Include="PluginJs\qrcode\html5-qrcode.min.js" />
+    <Content Include="PluginJs\qrcode\version.txt" />
+    <Content Include="PluginJs\Utility.js" />
+    <Content Include="QrCode.aspx" />
+    <Content Include="test1.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QrCode.aspx.cs">
+      <DependentUpon>QrCode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QrCode.aspx.designer.cs">
+      <DependentUpon>QrCode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test1.aspx.cs">
+      <DependentUpon>test1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test1.aspx.designer.cs">
+      <DependentUpon>test1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UtilityTool\ADVerify.cs" />
+    <Compile Include="UtilityTool\ExcelHelper.cs" />
+    <Compile Include="UtilityTool\MailHelper.cs" />
+    <Compile Include="UtilityTool\SqlHelper.cs" />
+    <Compile Include="UtilityTool\Misc.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63401</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:63390/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此專案參照此電腦中遺漏的 NuGet 封裝。請使用「NuGet 封裝還原」進行下載。如需詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkID=322105。遺漏的檔案為 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

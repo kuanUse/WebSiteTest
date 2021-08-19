@@ -1,0 +1,2 @@
+1.13.18
+https://github.com/snapappointments/bootstrap-select
