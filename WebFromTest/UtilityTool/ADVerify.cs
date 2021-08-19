@@ -10,7 +10,6 @@ namespace UtilityTool
 {
     public class ADVerify : IRequiresSessionState
     {
-        SqlHelper sqlHelper = new SqlHelper();
         public static readonly string UserInfoSessionKey = "userInfoSessionKey";
         public class UserInfo
         {
