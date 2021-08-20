@@ -418,8 +418,18 @@ namespace UtilityTool
     }
     public static class DataTableExtensions
     {
-        //轉換DataTable為List<T>
-        public static IList<T> ToList<T>(this DataTable table) where T : new()
+        public class TableColMap
+        {
+            public string propertyName { get; set; }
+            public string tableColumnName { get; set; }
+        }
+        /// <summary>
+        /// 轉換DataTable為List<T>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="table"></param>
+        /// <returns>IList<T></returns>
+        public static IList<T> ToList<T>(this DataTable table, IEnumerable<TableColMap> map = null) where T : new()
         {
             IList<PropertyInfo> properties = typeof(T).GetProperties().ToList();
             IList<T> result = new List<T>();
@@ -427,71 +437,91 @@ namespace UtilityTool
             //取得DataTable所有的row data
             foreach (DataRow row in table.Rows)
             {
-                var item = MappingItem<T>(row, properties);
+                var item = MappingItem<T>(row, properties, map);
                 result.Add(item);
             }
 
             return result;
         }
-        //轉換DataRow為 T
-        public static T ToObject<T>(this DataRow row) where T : new()
+        /// <summary>
+        /// 轉換DataRow為 T
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="row"></param>
+        /// <returns>T</returns>
+        public static T ToObject<T>(this DataRow row, IEnumerable<TableColMap> map = null) where T : new()
         {
             IList<PropertyInfo> properties = typeof(T).GetProperties().ToList();
-            var result = MappingItem<T>(row, properties);
+            var result = MappingItem<T>(row, properties, map);
             return result;
         }
-        private static T MappingItem<T>(DataRow row, IList<PropertyInfo> properties) where T : new()
+        private static T MappingItem<T>(DataRow row, IList<PropertyInfo> properties, IEnumerable<TableColMap> map) where T : new()
         {
             T item = new T();
+            map = map ?? new List<TableColMap>();
             foreach (var property in properties)
             {
+                var mapTableColName = (from e in map
+                                       where e.propertyName.Equals(property.Name)
+                                       select e.tableColumnName).DefaultIfEmpty("").First();
+                var tableColName = "";
                 if (row.Table.Columns.Contains(property.Name))
                 {
-                    //針對欄位的型態去轉換
-                    TypeCode elementTypeCode = Type.GetTypeCode(property.PropertyType);
-                    switch (elementTypeCode)
-                    {
-                        case TypeCode.DateTime:
+                    tableColName = property.Name;
+                }
+                else if (row.Table.Columns.Contains(mapTableColName))
+                {
+                    tableColName = mapTableColName;
+                }
+                else
+                {
+                    continue;
+                }
+
+                //針對欄位的型態去轉換
+                TypeCode elementTypeCode = Type.GetTypeCode(property.PropertyType);
+                switch (elementTypeCode)
+                {
+                    case TypeCode.DateTime:
+                        {
+                            var dt = new DateTime();
+                            if (DateTime.TryParse(row[tableColName].ToString(), out dt))
                             {
-                                var dt = new DateTime();
-                                if (DateTime.TryParse(row[property.Name].ToString(), out dt))
-                                {
-                                    property.SetValue(item, dt, null);
-                                }
-                                else
-                                {
-                                    property.SetValue(item, null, null);
-                                }
+                                property.SetValue(item, dt, null);
                             }
-                            break;
-                        case TypeCode.Decimal:
-                            var dec = new decimal();
-                            decimal.TryParse(row[property.Name].ToString(), out dec);
-                            property.SetValue(item, dec, null);
-                            break;
-                        case TypeCode.Double:
-                            var dou = new double();
-                            double.TryParse(row[property.Name].ToString(), out dou);
-                            property.SetValue(item, dou, null);
-                            break;
-                        case TypeCode.Int16:
-                        case TypeCode.Int32:
-                            var i = new int();
-                            int.TryParse(row[property.Name].ToString(), out i);
-                            property.SetValue(item, i, null);
-                            break;
-                        case TypeCode.Int64:
-                            var l = new long();
-                            long.TryParse(row[property.Name].ToString(), out l);
-                            property.SetValue(item, l, null);
-                            break;
-                        default:
-                            if (row[property.Name] != DBNull.Value)
+                            else
                             {
-                                property.SetValue(item, row[property.Name], null);
+                                property.SetValue(item, null, null);
                             }
-                            break;
-                    }
+                        }
+                        break;
+                    case TypeCode.Decimal:
+                        var dec = new decimal();
+                        decimal.TryParse(row[tableColName].ToString(), out dec);
+                        property.SetValue(item, dec, null);
+                        break;
+                    case TypeCode.Double:
+                        var dou = new double();
+                        double.TryParse(row[tableColName].ToString(), out dou);
+                        property.SetValue(item, dou, null);
+                        break;
+                    case TypeCode.Int16:
+                    case TypeCode.Int32:
+                        var i = new int();
+                        int.TryParse(row[tableColName].ToString(), out i);
+                        property.SetValue(item, i, null);
+                        break;
+                    case TypeCode.Int64:
+                        var l = new long();
+                        long.TryParse(row[tableColName].ToString(), out l);
+                        property.SetValue(item, l, null);
+                        break;
+                    default:
+                        if (row[tableColName] != DBNull.Value)
+                        {
+                            property.SetValue(item, row[tableColName], null);
+                        }
+                        break;
                 }
             }
             return item;
